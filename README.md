@@ -1,6 +1,6 @@
 # Sensai-Byan
 
-TODO
+# TODO
 
 decide what frontend we want (im tinking of maybe using an api in some of messaging app maybe)
     example: talking through discord bot

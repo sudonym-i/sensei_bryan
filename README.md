@@ -1,2 +1,9 @@
 # Sensai-Byan
-Sensei Bryan is your personal AI study partner, meant to help increase study effectiveness and deepen logic. Credit to Bryan Holl for project idea (https://github.com/BryanHol)
+
+TODO
+
+decide what frontend we want (im tinking of maybe using an api in some of messaging app)
+
+decide what key features we want to build
+
+decide who wants to build what

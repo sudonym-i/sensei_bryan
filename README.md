@@ -12,11 +12,6 @@ decide what key features we want to build (all propositions)
     finding sources
     generating rewarding, gamefied, study strategies
 
-decide who wants to build what
-
-**init build**
-
-python virtual environment (i think it can be shared) (.venv file)
 
 **steps for building**
 

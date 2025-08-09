@@ -50,8 +50,13 @@ python virtual environment (i think it can be shared) (.venv file)
 **3 - practice test feature**
 
 **4 - diagrams (more advenced, future stuff) (would search for images rather than generating)**
+
+
 # progress
 
+**Startup**
 
+clone project, cd into sensei-bryan directory, and run npm start (npm may need to be installed)
+----
 <img width="1915" height="911" alt="Screenshot from 2025-08-09 17-08-20" src="https://github.com/user-attachments/assets/2cdb835f-8a6b-410c-a143-b3db340d2c4e" />
 

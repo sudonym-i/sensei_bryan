@@ -20,7 +20,7 @@ python virtual environment (i think it can be shared) (.venv file)
 
 **steps for building**
 
-1 -learn framework ( research what framework we want to use )
+1 - learn framework ( research what framework we want to use )
 
 2 - make a single page that works (doesnt)
 
@@ -34,7 +34,7 @@ python virtual environment (i think it can be shared) (.venv file)
 **1 - teaching mode**
 
 1.2 - start by asking what subject ( what level; college, high school, baby)
-    string var = college algebra; + conext "explain X + **at a college level**"
+   ex: string var = college algebra; + conext "explain X + **at a college level**"
 
 1.3 - ask their main question
 

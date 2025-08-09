@@ -27,6 +27,7 @@ python virtual environment (i think it can be shared) (.venv file)
 3 - render text and make things look pretty
 
 4 - option 1 - run everything client-side (way easier if possible)
+
 4 - option 2 - connect somehow to our backend (very hard, if we get this done we are all geniuses and are the best)
 
 #  options - high level ideas

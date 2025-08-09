@@ -20,7 +20,7 @@ python virtual environment (i think it can be shared) (.venv file)
 
 **steps for building**
 
-1 - learn framework ( research what framework we want to use )
+1 - learn framework currently setup in **REACT**
 
 2 - make a single page that works (doesnt)
 

@@ -2,7 +2,7 @@
 
 # TODO
 
-** MAIN GOAL - makes you think rather than answer everything and turning your brain off **
+**MAIN GOAL - makes you think rather than answer everything and turning your brain off**
 
 decide what frontend we want (im tinking of maybe using an api in some of messaging app maybe)
     example: talking through discord bot

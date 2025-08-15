@@ -1,5 +1,10 @@
 # Sensei-Bryan
 
+# Deployed
+
+**find website at https://sensei-bryan.netlify.app/**
+
+
 # TODO
 
 **MAIN GOAL - makes you think rather than answer everything and turning your brain off**

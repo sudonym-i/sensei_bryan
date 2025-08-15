@@ -1,9 +1,18 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function App() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
@@ -12,10 +21,9 @@ function App() {
     const newMessages = [...messages, { text: inputMessage, sender: 'user' }];
     setMessages(newMessages);
 
-    // TODO: Add your AI API call here
-    // For now, we'll just echo back a response
+    // TODO: Add AI API call here
     const botResponse = {
-      text: `I received your message: "${inputMessage}"`,
+      text: `bot will be replying to: "${inputMessage}"`,
       sender: 'bot'
     };
 
@@ -27,8 +35,8 @@ function App() {
     <div className="App">
       <div className="chat-container">
         <header className="App-header">
-        <h1 className="titleText">Sensei Bryan</h1>
-      </header>
+          <h1 className="titleText">Sensei Bryan</h1>
+        </header>
         <div className="chat-messages">
           {messages.map((message, index) => (
             <div 
@@ -38,14 +46,15 @@ function App() {
               {message.text}
             </div>
           ))}
+          <div ref={messagesEndRef} /> {/* Scroll anchor */}
         </div>
         <div className="chat-input">
-          <input
-            type="text"
+          <textarea
+            id='inputMessage'
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-            placeholder="Type your message..."
+            placeholder="Message your Sensei"
+            rows="1"
           />
           <button onClick={handleSendMessage}>Send</button>
         </div>

@@ -1,4 +1,6 @@
 # Sensei-Bryan
+Credit to Bryan Holl for project idea (https://github.com/BryanHol)
+
 
 # Deployed
 

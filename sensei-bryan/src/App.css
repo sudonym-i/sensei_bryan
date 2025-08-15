@@ -211,11 +211,12 @@
 /* Add viewport height fix for mobile browsers */
 @supports (-webkit-touch-callout: none) {
   .App {
+    height: 100vh; /* Fallback */
     height: -webkit-fill-available;
   }
   
   .chat-container {
-    height: calc(100vh - 2rem);
-    height: calc(-webkit-fill-available - 2rem);
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
   }
 }

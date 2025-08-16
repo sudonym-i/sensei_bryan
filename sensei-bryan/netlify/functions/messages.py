@@ -2,38 +2,20 @@ from openai import OpenAI
 import json
 import os
 
-#meta-llama/llama-3.2-1b-instruct:free
-#              ^^ Free but terrible LLM model - Definitely use for testing however
-
-# openai/gpt-4.1-nano
-#          ^^ Not free, but affordable and much better preformance
-
 MODEL = "mistralai/mistral-nemo"
 
 
-# def get_response(prompt):
-   
-#     print("......")
-    
-#     completion = client.chat.completions.create(
-#         model = MODEL,
-#         messages=[{"role": "user","content": prompt}]
-#     )
-
-#     print(completion.choices[0].message.content)
-
-#     print("\n\n") # temporary spacing for demo
-#     return False
-
 def handler(event, context):
-    # Handle CORS
     headers = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'POST, OPTIONS'
     }
     
-    # Handle preflight requests
+    # Debug logging
+    print("Function triggered")
+    print("Event method:", event.get('httpMethod'))
+    
     if event['httpMethod'] == 'OPTIONS':
         return {
             'statusCode': 200,
@@ -41,26 +23,30 @@ def handler(event, context):
             'body': ''
         }
     
-    if event['httpMethod'] != 'POST':
-        return {
-            'statusCode': 405,
-            'headers': headers,
-            'body': json.dumps({'error': 'Method not allowed'})
-        }
-    
     try:
-        # Parse the request body
         body = json.loads(event['body'])
         input_text = body.get('text', '')
+        
+        print(f"Received input: {input_text}")
         
         if not input_text:
             return {
                 'statusCode': 400,
                 'headers': headers,
-                'body': json.dumps({'error': 'No text provided'})
+                'body': json.dumps({'error': 'No input text provided'})
             }
 
-        client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ.get('ai_auth'))
+        api_key = os.environ.get('auth_ai')
+        if not api_key:
+            print("API key not found!")
+            return {
+                'statusCode': 500,
+                'headers': headers,
+                'body': json.dumps({'error': 'API key not configured'})
+            }
+
+        client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
+        
         response = client.chat.completions.create(
             model=MODEL,
             messages=[{"role": "user", "content": input_text}]
@@ -75,6 +61,7 @@ def handler(event, context):
         }
         
     except Exception as e:
+        print(f"Error occurred: {str(e)}")
         return {
             'statusCode': 500,
             'headers': headers,

@@ -30,35 +30,42 @@ function App() {
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
 
-    // Add user message to chat
     const newMessages = [...messages, { text: inputMessage, sender: 'user' }];
     setMessages(newMessages);
 
     try {
-      const response = await fetch('/.netlify/functions/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: inputMessage }),
-      });
+        console.log('Sending request to function...');
+        const response = await fetch('/.netlify/functions/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: inputMessage }),
+        });
 
-      const data = await response.json();
-      
-      if (data.error) {
-        throw new Error(data.error);
-      }
+        console.log('Response status:', response.status);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-      setMessages([...newMessages, { 
-        text: data.result, 
-        sender: 'bot'
-      }]);
+        const data = await response.json();
+        console.log('Response data:', data);
+        
+        if (data.error) {
+            throw new Error(data.error);
+        }
+
+        setMessages([...newMessages, { 
+            text: data.result, 
+            sender: 'bot'
+        }]);
     } catch (error) {
-      console.error('Error:', error);
-      setMessages([...newMessages, { 
-        text: "Sorry, I encountered an error processing your message.", 
-        sender: 'bot'
-      }]);
+        console.error('Error details:', error);
+        setMessages([...newMessages, { 
+            text: `Error: ${error.message}`, 
+            sender: 'bot'
+        }]);
     }
 
     setInputMessage('');

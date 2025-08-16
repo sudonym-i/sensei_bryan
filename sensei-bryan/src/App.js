@@ -34,13 +34,33 @@ function App() {
     const newMessages = [...messages, { text: inputMessage, sender: 'user' }];
     setMessages(newMessages);
 
-    // TODO: Add AI API call here
-    const botResponse = {
-      text: `bot will be replying to: "${inputMessage}"`,
-      sender: 'bot'
-    };
+    try {
+      const response = await fetch('/.netlify/functions/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: inputMessage }),
+      });
 
-    setMessages([...newMessages, botResponse]);
+      const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      setMessages([...newMessages, { 
+        text: data.result, 
+        sender: 'bot'
+      }]);
+    } catch (error) {
+      console.error('Error:', error);
+      setMessages([...newMessages, { 
+        text: "Sorry, I encountered an error processing your message.", 
+        sender: 'bot'
+      }]);
+    }
+
     setInputMessage('');
   };
 

@@ -7,12 +7,26 @@
 [build]
   command = "npm run build"
   publish = "build"
-  functions = "netlify/functions"
+  functions = "netlify/functions" 
+
+[build.environment]
+  auth_ai = "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"
+  OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+  model = "mistralai/mistral-nemo"
+
+
 
 [functions]
-  directory = "netlify/functions"
+  directory = "netlify/functions" 
   [functions.messages]
-    runtime = "python3.11"
+    runtime = "nodejs18.x"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
 
 [[redirects]]
   from = "/*"

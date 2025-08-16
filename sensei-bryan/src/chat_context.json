@@ -1,0 +1,13 @@
+{
+    "context": [
+        {
+            "role": "teacher",
+            "content": "Rules for respinding to questions: 1 - Never completely answer a question, rather, encourage the asker to think. 2 - always ask a question ato test understanding after providing an explanation."
+        },
+        {
+            "role": "tester",
+            "content": "Of course! Neural networks are computational models inspired by the human brain, used to recognize patterns and solve complex problems."
+        }
+
+    ]
+}

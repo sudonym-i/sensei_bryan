@@ -1,3 +1,17 @@
+/**
+ * Sensei Bryan - AI Chat Application
+ * 
+ * This is the main React component that implements the chat interface.
+ * It handles message state management, API communication with the Netlify function,
+ * and provides a responsive UI for user interactions.
+ * 
+ * Features:
+ * - Real-time chat interface
+ * - Auto-scrolling messages
+ * - Mobile-responsive design
+ * - Error handling and user feedback
+ */
+
 import './App.css';
 import { useState, useEffect, useRef } from 'react';
 
@@ -6,9 +20,13 @@ function App() {
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef(null);
 
+
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+
 
   useEffect(() => {
     scrollToBottom();
@@ -27,49 +45,53 @@ function App() {
     return () => window.removeEventListener('resize', setVH);
   }, []);
 
+
+
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
 
+    setInputMessage('');
+    
     const newMessages = [...messages, { text: inputMessage, sender: 'user' }];
     setMessages(newMessages);
 
     try {
-        console.log('Sending request to function...');
-        const response = await fetch('/.netlify/functions/messages', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ text: inputMessage }),
-        });
+      console.log('Sending request to function...');
+      const response = await fetch('/.netlify/functions/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: inputMessage }),
+      });
 
-        console.log('Response status:', response.status);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+      console.log('Response status:', response.status);
 
-        const data = await response.json();
-        console.log('Response data:', data);
-        
-        if (data.error) {
-            throw new Error(data.error);
-        }
+      let data;
+      try {
+        data = await response.json();
+      } catch (e) {
+        throw new Error('Invalid JSON response from server');
+      }
 
-        setMessages([...newMessages, { 
-            text: data.result, 
-            sender: 'bot'
-        }]);
+      if (!response.ok || data.error) {
+        throw new Error(data?.error || `HTTP error! status: ${response.status}`);
+      }
+
+      setMessages([...newMessages, {
+        text: data.result,
+        sender: 'bot',
+      }]);
     } catch (error) {
-        console.error('Error details:', error);
-        setMessages([...newMessages, { 
-            text: `Error: ${error.message}`, 
-            sender: 'bot'
-        }]);
+      console.error('Error details:', error);
+      setMessages([...newMessages, {
+        text: `Error: ${error.message}`,
+        sender: 'bot',
+      }]);
     }
-
-    setInputMessage('');
   };
+
+  
 
   return (
     <div className="App">

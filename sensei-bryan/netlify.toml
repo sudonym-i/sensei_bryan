@@ -1,0 +1,29 @@
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Access-Control-Allow-Origin = "*"
+
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "netlify/functions" 
+
+
+
+[functions]
+  directory = "netlify/functions" 
+  [functions.messages]
+    runtime = "nodejs18.x"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

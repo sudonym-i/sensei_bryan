@@ -64,4 +64,5 @@ clone project, cd into sensei-bryan directory, and run npm start (npm may need t
 <img width="828" height="1792" alt="IMG_0395" src="https://github.com/user-attachments/assets/b122ed18-09c0-4063-8977-aebd4beffd15" />
 
 
+<img width="1919" height="910" alt="Screenshot from 2025-08-16 14-39-56" src="https://github.com/user-attachments/assets/26bbbee2-7945-4eb8-bea5-4262779fa2c3" />
 

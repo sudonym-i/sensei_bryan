@@ -61,5 +61,12 @@ decide what key features we want to build (all propositions)
 clone project, cd into sensei-bryan directory, and run npm start (npm may need to be installed)
 
 ----
-<img width="1915" height="911" alt="Screenshot from 2025-08-09 17-08-20" src="https://github.com/user-attachments/assets/2cdb835f-8a6b-410c-a143-b3db340d2c4e" />
 
+**Desktop**
+
+<img width="1800" height="800" alt="Screenshot from 2025-08-16 14-39-56" src="https://github.com/user-attachments/assets/26bbbee2-7945-4eb8-bea5-4262779fa2c3" />
+
+**Mobile**
+
+
+<img width="400" height="800" alt="IMG_0395" src="https://github.com/user-attachments/assets/b122ed18-09c0-4063-8977-aebd4beffd15" />

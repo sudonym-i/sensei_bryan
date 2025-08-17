@@ -1,2 +1,3 @@
-# Local Netlify folder
+# Ignroe build artifacts and dependencies
 .netlify
+build

@@ -14,8 +14,8 @@
 
 import './App.css';
 import { useState, useEffect, useRef } from 'react';
-import { marked } from "marked";
-import DOMPurify from "dompurify";
+import ReactMarkdown from "react-markdown";
+
 
   // --------------- mode toggle functionality --------------- //
   const modes = [
@@ -48,15 +48,6 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef(null);
-
-
-
-function markdownToHTML(markdownText) {
-  const rawHTML = marked(markdownText);       // Convert Markdown → HTML
-  const safeHTML = DOMPurify.sanitize(rawHTML); // Clean it
-  return safeHTML;
-}
-
 
 
   const scrollToBottom = () => {
@@ -126,7 +117,7 @@ function markdownToHTML(markdownText) {
       }
 
       setMessages([...newMessages, {
-        text: markdownToHTML(data.result),
+        text: data.result,
         sender: 'bot',
       }]);
     } catch (error) {
@@ -206,7 +197,7 @@ function markdownToHTML(markdownText) {
               key={index} 
               className={`message ${message.sender}-message`}
             >
-              {message.text}
+              <ReactMarkdown>{message.text}</ReactMarkdown>
             </div>
           ))}
           <div ref={messagesEndRef} /> {/* Scroll anchor */}

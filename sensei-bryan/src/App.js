@@ -14,7 +14,8 @@
 
 import './App.css';
 import { useState, useEffect, useRef } from 'react';
-
+import { marked } from "marked";
+import DOMPurify from "dompurify";
 
   // --------------- mode toggle functionality --------------- //
   const modes = [
@@ -47,6 +48,14 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef(null);
+
+
+
+function markdownToHTML(markdownText) {
+  const rawHTML = marked(markdownText);       // Convert Markdown → HTML
+  const safeHTML = DOMPurify.sanitize(rawHTML); // Clean it
+  return safeHTML;
+}
 
 
 
@@ -90,7 +99,8 @@ function App() {
       // give an indicator that the response is loading
     
     setMessages(newMessages);
-
+    
+    const chat_context = document.getElementById("chat_messages");
     // Send the message to the server, and handle the response (error or success)
     try {
       console.log('Sending request to function...');
@@ -99,7 +109,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: currentMode.context + inputMessage }),
+        body: JSON.stringify({ text: "Role: " + currentMode.context + "Conversation context: " + chat_context.innerText + "New question: " + inputMessage }),
       });
 
       console.log('Response status:', response.status);
@@ -116,7 +126,7 @@ function App() {
       }
 
       setMessages([...newMessages, {
-        text: data.result,
+        text: markdownToHTML(data.result),
         sender: 'bot',
       }]);
     } catch (error) {
@@ -190,7 +200,7 @@ function App() {
         <header className="App-header">
           <h1 className="titleText">Sensei Bryan</h1>
         </header>
-        <div className="chat-messages">
+        <div className="chat-messages" id="chat_messages">
           {messages.map((message, index) => (
             <div 
               key={index} 

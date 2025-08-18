@@ -329,12 +329,35 @@
             .tray-toggle {
                 width: 36px;
                 height: 36px;
-                top: calc(0.3em + 2.5rem - 40px / 2);
+                top: 3em;
             }
 
             .tray-toggle::before {
                 font-size: 20px;
             }
+            .mode-toggle{
+              padding: 20px, 30px;
+            }
+        }
+    @media screen and (max-width: 768px) {
+            .mode-description {
+                font-size: 16px;
+                min-height: 32px;
+                margin-top: 36px;
+                margin-bottom: 36px;
+            }
+            .tray-toggle{
+              height: 40px;
+              width: 40px;
+              top: 3em;
+            }
+            .toggle-container{
+              margin-top: 115px;
+            }
+            .chat-input{
+              margin-bottom: 30px;
+            }
+
         }
 
         /* Prevent scrolling of main content when tray is open on mobile */
@@ -355,7 +378,6 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 180px;
             white-space: nowrap;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-overflow: ellipsis;
@@ -393,6 +415,19 @@
             content: '🧪 ';
         }
 
+        .open-source-info {
+            color: var(--fg-light);
+            font-size: 12px;
+            margin-top: 100px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            border-style: solid;
+            border-color: var(--yellow);
+            border-width: 1px;
+            border-radius: 10px;
+            padding: 1em;
+        }
+        
         .chat-input button.memorization {
             background-color: var(--purple);
         }
@@ -417,24 +452,7 @@
             text-align: left;
         }
 
-        @media screen and (max-width: 768px) {
-            .mode-description {
-                font-size: 16px;
-                min-height: 32px;
-                margin-top: 36px;
-                margin-bottom: 36px;
-            }
-            .tray-toggle{
-              height: 40px;
-              width: 40px;
-              top: calc(0.3em + 2.5rem - 40px / 2);
-            }
-            .chat-input{
-              margin-bottom: 30px;
-            }
-
-        }
-
+    
         /* Ripple effect */
         .ripple {
             position: absolute;

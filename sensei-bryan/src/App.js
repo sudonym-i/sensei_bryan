@@ -187,6 +187,9 @@ function App() {
             <div className="mode-description">
               {currentMode.description}
             </div>
+            <p className="open-source-info">
+                   Sensei Bryan is an AI chatbot built with the goal of challenging you to think. This is an open source project, and any support is appreciated. 
+            </p>
           </div>
       <div className={`chat-container ${isTrayVisible ? 'tray-open' : ''}`}>
         <header className="App-header">

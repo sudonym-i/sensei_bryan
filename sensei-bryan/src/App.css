@@ -379,7 +379,7 @@
             overflow: hidden;
             width: 100%;
             white-space: nowrap;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 4px 15px rgba(0, 0, 0, 1);
             text-overflow: ellipsis;
         }
 
@@ -398,7 +398,7 @@
         }
         .mode-toggle.teaching {
             border-color: var(--green);
-            background-color: var(--bg-medium);
+            background-color: var(--bg-dark);
         }
         .mode-toggle.teaching::before {
             content: '📚 ';
@@ -409,7 +409,7 @@
         }
         .mode-toggle.testing {
             border-color: var(--orange);
-            background-color: var(--bg-medium);
+            background-color: var(--bg-dark);
         }
         .mode-toggle.testing::before {
             content: '🧪 ';
@@ -433,7 +433,7 @@
         }
         .mode-toggle.memorization {
             border-color: var(--purple);
-            background-color: var(--bg-medium);
+            background-color: var(--bg-dark);
         }
         .mode-toggle.memorization::before {
             content: '🧠 ';

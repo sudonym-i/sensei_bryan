@@ -13,18 +13,22 @@
 
 import type { Handler } from '@netlify/functions';
 
+
 /**
  * Main handler function for processing chat messages
  * @param {Object} event - The incoming HTTP event from Netlify
  * @returns {Promise<Object>} Response object with status code and message
  */
 export const handler: Handler = async (event) => {
+
+	//hanfle wrong kind of request ( not POST)
 	if (event.httpMethod !== 'POST') {
 		return {
 			statusCode: 405,
 			body: JSON.stringify({ error: 'Method Not Allowed' }),
 		};
 	}
+
 
 	try {
 		const { text } = JSON.parse(event.body || '{}');
@@ -55,7 +59,7 @@ export const handler: Handler = async (event) => {
 			body: JSON.stringify({
 				model: model,
 				messages: [
-					{ role: 'system', content: 'You are Sensei Bryan, a helpful and wise assistant.' },
+					{ role: 'system', content: 'You are Sensei Bryan, a helpful educational AI assistant.' },
 					{ role: 'user', content: text },
 				],
 			}),

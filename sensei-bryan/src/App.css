@@ -1,13 +1,16 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: #282828;
+  align-items: center;
   font-family: 'JetBrains Mono', monospace;
   color: #ebdbb2;
   min-height: 100vh;
   height: 100%;
   position: fixed;
+  padding-left: 1em;
+  padding-right: 1em;
   top: 0;
   left: 0;
   right: 0;
@@ -15,7 +18,11 @@
 }
 
 .App-header {
+  display: flex;
   padding: 0.3em;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   flex-shrink: 0;
@@ -122,7 +129,7 @@
 
 .chat-input button {
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #689d6a 0%, #8ec07c 100%);
+  background: var(--yellow); /* Default background color */
   color: #1d2021;
   border: none;
   border-radius: 12px;
@@ -130,7 +137,7 @@
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .chat-input button:hover {
@@ -187,7 +194,7 @@
   color: #ebdbb2;
 }
 
-/* Add media query for smaller screens */
+/* Add media query for smaller screens   TODO: add more margin for input box and underneath messages (between input box and messages)*/ 
 @media screen and (max-width: 768px) {
   .chat-input {
     margin: 0.5rem;
@@ -220,3 +227,217 @@
     height: calc(var(--vh, 1vh) * 100);
   }
 }
+
+  /* // -------------- toggle for mode -------------- // */
+
+        /* Gruvbox color palette */
+        :root {
+            --bg-dark: #282828;
+            --bg-medium: #3c3836;
+            --fg-light: #ebdbb2;
+            --yellow: #fabd2f;
+            --orange: #fe8019;
+            --purple: #d3869b;
+            --green: #689d6a;
+            --blue: #83a598;
+            --red: #fb4934;
+        }
+
+        /* Toggle button for the tray */
+        .tray-toggle {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            z-index: 1001;
+            background: var(--bg-medium);
+            border: none;
+            border-radius: 15%;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tray-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .tray-toggle::before {
+          color : var(--fg-light);
+            content: "☰";
+            font-size: 24px;
+        }
+
+        /* Main tray container */
+        .toggle-container {
+            margin-top: 80px; /* Add margin to separate from toggle */
+            text-align: center;
+            width: 10vw;
+            padding: 1.5em;
+            background-color: var(--bg-medium);
+            border-radius: 10px;
+            position: fixed;
+            left: -20vw; /* Start off-screen */
+            top: 0;
+            transition: all 0.3s ease;
+            box-shadow: inset 4px 4px 20px rgba(0, 0, 0, 0.7);
+            border-style: none;
+            z-index: 1000;
+            overflow-y: auto;
+            margin-bottom: 80px;
+        }
+
+        /* When tray is visible */
+        .toggle-container.visible {
+            left: 1em;
+        }
+
+        /* Responsive styling */
+        @media screen and (max-width: 1040px) {
+            .toggle-container {
+                width: 90vw;
+                left: -100vw;
+                padding: 1em;
+                box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
+            }
+
+            .toggle-container.visible {
+                left: 0.5em;
+            }
+
+            .tray-toggle {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Blur the chat when tray is open on mobile */
+            .chat-container.tray-open {
+                filter: blur(3px);
+                pointer-events: none;
+            }
+        }
+
+        /* Additional adjustments for very small screens */
+        @media screen and (max-width: 480px) {
+            .toggle-container {
+                padding: 0.8em;
+            }
+
+            .tray-toggle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .tray-toggle::before {
+                font-size: 20px;
+            }
+        }
+
+        /* Prevent scrolling of main content when tray is open on mobile */
+        body.tray-open {
+            overflow: hidden;
+        }
+
+        .mode-toggle {
+            background-color: var(--bg-medium);
+            border: 2px solid var(--yellow);
+            color: var(--fg-light);
+            padding: 7px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 180px;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-overflow: ellipsis;
+        }
+
+        .mode-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .mode-toggle:active {
+            transform: translateY(0);
+        }
+
+        /* Mode-specific styles */
+        .chat-input button.teaching {
+            background-color: var(--green);
+        }
+        .mode-toggle.teaching {
+            border-color: var(--green);
+            background-color: var(--bg-medium);
+        }
+        .mode-toggle.teaching::before {
+            content: '📚 ';
+        }
+
+        .chat-input button.testing {
+            background-color: var(--orange);
+        }
+        .mode-toggle.testing {
+            border-color: var(--orange);
+            background-color: var(--bg-medium);
+        }
+        .mode-toggle.testing::before {
+            content: '🧪 ';
+        }
+
+        .chat-input button.memorization {
+            background-color: var(--purple);
+        }
+        .mode-toggle.memorization {
+            border-color: var(--purple);
+            background-color: var(--bg-medium);
+        }
+        .mode-toggle.memorization::before {
+            content: '🧠 ';
+        }
+
+        .mode-description {
+            margin-top: 12px;
+            color: var(--fg-light);
+            font-size: 15px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+
+        @media screen and (max-width: 768px) {
+            .mode-description {
+                font-size: 11px;
+                min-height: 32px;
+                margin-top: 8px;
+            }
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(235, 219, 178, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }

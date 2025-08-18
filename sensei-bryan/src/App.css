@@ -60,7 +60,7 @@
 }
 
 .message {
-  padding: 0.5em 1em;  /* increased horizontal padding */
+  padding: 0em 1em;  /* increased horizontal padding */
   border-radius: 12px;
   max-width: 85%;
   word-wrap: break-word;
@@ -310,13 +310,13 @@
             }
 
             .tray-toggle {
-                width: 40px;
-                height: 40px;
+                width: 60px;
+                height: 60px;
             }
 
             /* Blur the chat when tray is open on mobile */
             .chat-container.tray-open {
-                filter: blur(3px);
+                filter: blur(4px);
                 pointer-events: none;
             }
         }
@@ -330,6 +330,7 @@
             .tray-toggle {
                 width: 36px;
                 height: 36px;
+                top: calc(0.3em + 2.5 rem - 40px / 2);
             }
 
             .tray-toggle::before {
@@ -405,7 +406,7 @@
         }
 
         .mode-description {
-            margin-top: 12px;
+            margin-top: 36px;
             color: var(--fg-light);
             font-size: 15px;
             opacity: 0.8;
@@ -419,10 +420,20 @@
 
         @media screen and (max-width: 768px) {
             .mode-description {
-                font-size: 11px;
+                font-size: 16px;
                 min-height: 32px;
-                margin-top: 8px;
+                margin-top: 36px;
+                margin-bottom: 36px;
             }
+            .tray-toggle{
+              height: 40px;
+              width: 40px;
+              top: calc(0.3em + 2.5 rem - 40px / 2);
+            }
+            .chat-input{
+              margin-bottom: 30px;
+            }
+
         }
 
         /* Ripple effect */

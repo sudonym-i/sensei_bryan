@@ -81,15 +81,16 @@ function App() {
     const newMessages = [...messages, { text: inputMessage, sender: 'user' }];
 
     setInputMessage('');
-    //clear users input field (the messag box)
+    //clear users input field (the message box)
+    
+    setMessages(newMessages);
+    //set users message in the chat box
 
     setMessages([...newMessages, {
         text: "Thinking...",
         sender: 'bot',
       }]);
       // give an indicator that the response is loading
-    
-    setMessages(newMessages);
     
     const chat_context = document.getElementById("chat_messages");
     // Send the message to the server, and handle the response (error or success)

@@ -194,40 +194,6 @@
   color: #ebdbb2;
 }
 
-/* Add media query for smaller screens   TODO: add more margin for input box and underneath messages (between input box and messages)*/ 
-@media screen and (max-width: 768px) {
-  .chat-input {
-    margin: 0.5rem;
-    padding: 0.75rem;
-    border-radius: 12px;
-  }
-
-  .chat-messages {
-    padding-bottom: calc(4.5rem + 30px); /* Increased padding for mobile */
-  }
-
-  .message {
-    max-width: 90%;
-  }
-
-  .chat-input button {
-    padding: 0.75rem 1.25rem;
-  }
-}
-
-/* Add viewport height fix for mobile browsers */
-@supports (-webkit-touch-callout: none) {
-  .App {
-    height: 100vh; /* Fallback */
-    height: -webkit-fill-available;
-  }
-  
-  .chat-container {
-    height: 100vh; /* Fallback */
-    height: calc(var(--vh, 1vh) * 100);
-  }
-}
-
   /* // -------------- toggle for mode -------------- // */
 
         /* Gruvbox color palette */
@@ -311,7 +277,7 @@
             .tray-toggle {
                 width: 40px;
                 height: 40px;
-                margin-top: 20px;
+                margin-top: 15px;
             }
 
             /* Blur the chat when tray is open on mobile */
@@ -320,6 +286,37 @@
                 pointer-events: none;
             }
         }
+
+
+
+/* Additional responsive fixes for very small screens */
+@media screen and (max-width: 480px) {
+  .chat-input {
+    margin: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .chat-messages {
+    padding-bottom: calc(4.5rem + 30px); /* Increased padding for mobile */
+  }
+
+  .message {
+    max-width: 90%;
+  }
+
+  .chat-input button {
+    padding: 0.75rem 1.25rem;
+  }
+
+  /* Fix titleText overlap on mobile */
+  .titleText {
+    font-size: 1.9rem; /* Reduced from 2.5rem */
+    margin-left: 35px; /* Add left margin to avoid tray toggle */
+  }
+}
+
+
 
         /* Prevent scrolling of main content when tray is open on mobile */
         body.tray-open {

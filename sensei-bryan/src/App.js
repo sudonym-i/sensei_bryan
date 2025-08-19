@@ -24,21 +24,21 @@ import ReactMarkdown from "react-markdown";
       label: 'Teaching Mode',
       description: 'Ask Sensei Bryan questions, and get detailed explanations. Bryan will ask you follow-up questions to clarify your understanding after each response.',
       color: 'var(--green)',
-      context: 'Use these rules when responding to the question below: 1 - Never completely answer a question, rather, encourage the asker to think. 2 - always ask a question after explaining, in order to test understanding. 3 - be as specific as possible. Here is the question:',
+      context: 'Use these rules when responding to the question: 1 - Never completely answer a question, rather, encourage the asker to think. 2 - always ask a question after explaining, in order to test understanding. 3 - be as specific as possible. go into detail about at least 3 points, prompting the asker to consider something with each point. Encourage me to think.',
     },
     {
       name: 'testing',
       label: 'Testing Mode',
       description: 'Test your knowledge with quizzes and challenges. Sensei Bryan will evaluate you responses and helo steer you in the correct directiond.',
       color: 'var(--orange)',
-      context: 'make me a practice test out of the following prompt, with multiple questions testing different skills/knowledge. check the answer that I give afterwards. Here is the prompt:'
+      context: 'make me a practice test out of the following prompt, with multiple questions testing different skills/knowledge. Check the answer that I give afterwards, informing me of what I got right and whatI got wrong.'
     },
     {
       name: 'memorization',
       label: 'Memory Mode',
       description: 'Some memorization exercises to help reinforce your learning.',
       color: 'var(--purple)',
-      context: 'Make an exercise to help me memorize the following text. Ask me questions about it afterwards to test my memory. try to do something similar to how flalshcards work. Here is the text:'
+      context: 'Make an exercise to help me memorize the following text. Ask me questions about it afterwards to test my memory.'
     }
   ];
 
@@ -101,7 +101,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: "Role: " + currentMode.context + "Conversation context: " + chat_context.innerText + "New question: " + inputMessage }),
+        body: JSON.stringify({ text: "Role: " + currentMode.context + "Conversation context: " + chat_context.innerText + "**Reply to this question:** " + inputMessage }),
       });
 
       console.log('Response status:', response.status);

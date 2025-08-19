@@ -274,7 +274,7 @@
 
         /* Main tray container */
         .toggle-container {
-            margin-top: 80px; /* Add margin to separate from toggle */
+            margin-top: 100px; /* Add margin to separate from toggle */
             text-align: center;
             width: 10vw;
             padding: 1.5em;
@@ -288,7 +288,6 @@
             border-style: none;
             z-index: 1000;
             overflow-y: auto;
-            margin-bottom: 80px;
         }
 
         /* When tray is visible */
@@ -297,21 +296,22 @@
         }
 
         /* Responsive styling */
-        @media screen and (max-width: 1040px) {
+        @media screen and (max-width: 1267px) {
             .toggle-container {
-                width: 90vw;
-                left: -100vw;
+                width: 88vw;
+                left: -105vw;
                 padding: 1em;
                 box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.7);
             }
 
             .toggle-container.visible {
-                left: 0.5em;
+                 left: calc(50% - 44vw - 16px);
             }
 
             .tray-toggle {
-                width: 60px;
-                height: 60px;
+                width: 40px;
+                height: 40px;
+                margin-top: 20px;
             }
 
             /* Blur the chat when tray is open on mobile */
@@ -319,45 +319,6 @@
                 filter: blur(4px);
                 pointer-events: none;
             }
-        }
-
-        /* Additional adjustments for very small screens */
-        @media screen and (max-width: 480px) {
-            .toggle-container {
-                padding: 0.8em;
-            }
-            .tray-toggle {
-                width: 36px;
-                height: 36px;
-                top: 3em;
-            }
-
-            .tray-toggle::before {
-                font-size: 20px;
-            }
-            .mode-toggle{
-              padding: 20px, 30px;
-            }
-        }
-    @media screen and (max-width: 768px) {
-            .mode-description {
-                font-size: 16px;
-                min-height: 32px;
-                margin-top: 36px;
-                margin-bottom: 36px;
-            }
-            .tray-toggle{
-              height: 40px;
-              width: 40px;
-              top: 3em;
-            }
-            .toggle-container{
-              margin-top: 115px;
-            }
-            .chat-input{
-              margin-bottom: 30px;
-            }
-
         }
 
         /* Prevent scrolling of main content when tray is open on mobile */

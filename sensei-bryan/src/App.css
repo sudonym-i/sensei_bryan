@@ -292,7 +292,8 @@
 /* Additional responsive fixes for very small screens */
 @media screen and (max-width: 480px) {
   .chat-input {
-    margin: 0.5rem;
+
+    margin-bottom: 2em;
     padding: 0.75rem;
     border-radius: 12px;
   }

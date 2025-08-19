@@ -37,6 +37,12 @@ decide what key features we want to build (all propositions)
 
 **4 - diagrams (more advenced, future stuff) (would search for images rather than generating)**
 
+# Funding
+
+As running this web app isnt free (primarily because of LLM per-M-token costs), we need to find a way to fund this project
+IDEAS
+1 - Crowd fund. Have a big fund that anyone can donate to, which goes directly into a pooled openrouter api key, loading funds which pay for everyones LLM usage
+
 
 ----
 

@@ -75,7 +75,12 @@ function App() {
 
 
 
-  const handleSendMessage = async () => {
+  const handleSendMessage = async(attempt) => {
+
+    if(attempt > 2){
+      return;
+    }
+
     if (!inputMessage.trim()) return;
 
     const newMessages = [...messages, { text: inputMessage, sender: 'user' }];
@@ -110,7 +115,8 @@ function App() {
       try {
         data = await response.json();
       } catch (e) {
-        throw new Error('Invalid JSON response from server');
+        //recursively attempt again, as if the function takes too long, netlify quits the request on free teir
+        handleSendMessage(attempt + 1);
       }
 
       if (!response.ok || data.error) {
@@ -214,7 +220,7 @@ function App() {
             placeholder="Message your Sensei"
             rows="1"
           />
-          <button className={`send-button ${currentMode.name}`} onClick={handleSendMessage} >Send</button>
+          <button className={`send-button ${currentMode.name}`} onClick={() => handleSendMessage(1)} >Send</button>
         </div>
       </div>
     </div>

@@ -24,21 +24,21 @@ import ReactMarkdown from "react-markdown";
       label: 'Teaching Mode',
       description: 'Ask Sensei Bryan questions, and get detailed explanations. Bryan will ask you follow-up questions to clarify your understanding after each response.',
       color: 'var(--green)',
-      context: 'Use these rules when responding to the question: 1 - Never completely answer a question, rather, encourage the asker to think. 2 - always ask a question after explaining, in order to test understanding. 3 - be as specific as possible. go into detail about at least 3 points, prompting the asker to consider something with each point. Encourage me to think.',
+      context: 'Use these rules when responding to the question: 1 - Never completely answer a question, rather, encourage the asker to think. 2 - be as specific as possible. Go into detail about at least 3 points. End by asking a question- begin to solve it, but have the asker complete the problem. Ask them to explain back their understanding',
     },
     {
       name: 'testing',
       label: 'Testing Mode',
-      description: 'Test your knowledge with quizzes and challenges. Sensei Bryan will evaluate you responses and helo steer you in the correct directiond.',
+      description: 'Test your knowledge with quizzes and challenges. Sensei Bryan will evaluate you responses and help steer you in the correct direction.',
       color: 'var(--orange)',
-      context: 'make me a practice test out of the following prompt, with multiple questions testing different skills/knowledge. Check the answer that I give afterwards, informing me of what I got right and whatI got wrong.'
+      context: 'make me a practice test out of the following prompt, with multiple questions testing different skills/knowledge. Check the answer that I give afterwards, informing me of what I got right and whatI got wrong. Use adequate spacing, and give a grade at the end..'
     },
     {
       name: 'memorization',
       label: 'Memory Mode',
       description: 'Some memorization exercises to help reinforce your learning.',
       color: 'var(--purple)',
-      context: 'Make an exercise to help me memorize the following text. Ask me questions about it afterwards to test my memory.'
+      context: 'Make an exercise to help me memorize the following text. Ask me questions about it afterwards to test my memory. Make a game out of it.'
     }
   ];
 

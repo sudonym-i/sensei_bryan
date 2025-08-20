@@ -6,13 +6,7 @@ Credit to Bryan Holl for project idea (https://github.com/BryanHol)
 
 **find website at https://sensei-bryan.netlify.app/**
 
-
-# TODO
-
 **MAIN GOAL - makes you think rather than answer everything and turning your brain off**
-
-decide what frontend we want (im tinking of maybe using an api in some of messaging app maybe)
-    example: talking through discord bot
 
 decide what key features we want to build (all propositions)
     asking questions, etc
@@ -20,19 +14,9 @@ decide what key features we want to build (all propositions)
     generating rewarding, gamefied, study strategies
 
 
-**steps for building**
 
-1 - learn framework currently setup in **REACT**
 
-2 - make a single page that works (doesnt)
-
-3 - render text and make things look pretty
-
-4 - option 1 - run everything client-side (way easier if possible)
-
-4 - option 2 - connect somehow to our backend (very hard, if we get this done we are all geniuses and are the best)
-
-#  options - high level ideas
+#  Brainstorming ideas
 
 **1 - teaching mode**
 
@@ -53,12 +37,12 @@ decide what key features we want to build (all propositions)
 
 **4 - diagrams (more advenced, future stuff) (would search for images rather than generating)**
 
+# Funding
 
-# progress
+As running this web app isnt free (primarily because of LLM per-M-token costs), we need to find a way to fund this project
+IDEAS
+1 - Crowd fund. Have a big fund that anyone can donate to, which goes directly into a pooled openrouter api key, loading funds which pay for everyones LLM usage
 
-**Startup**
-
-clone project, cd into sensei-bryan directory, and run npm start (npm may need to be installed)
 
 ----
 

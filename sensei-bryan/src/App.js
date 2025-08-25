@@ -24,14 +24,14 @@ import ReactMarkdown from "react-markdown";
       label: 'Teaching Mode',
       description: 'Ask Sensei Bryan questions, and get detailed explanations. Bryan will ask you follow-up questions to clarify your understanding after each response.',
       color: 'var(--green)',
-      context: 'Use these rules when responding to the question: 1 - Never completely answer a question, rather, encourage the asker to think. 2 - be as specific as possible. Go into detail about at least 3 points. End by asking a question- begin to solve it, but have the asker complete the problem. Ask them to explain back their understanding',
+      context: 'Use these rules when responding to the question: 1 - Never completely answer a question, rather, encourage the asker to think. 2 - be as specific as possible. Go into detail about at least 3 points. End by asking a pracice question- begin to solve it, but have the asker complete the problem. Ask them to explain back their understanding',
     },
     {
       name: 'testing',
       label: 'Testing Mode',
       description: 'Test your knowledge with quizzes and challenges. Sensei Bryan will evaluate you responses and help steer you in the correct direction.',
       color: 'var(--orange)',
-      context: 'make me a practice test out of the following prompt, with multiple questions testing different skills/knowledge. Check the answer that I give afterwards, informing me of what I got right and whatI got wrong. Use adequate spacing, and give a grade at the end..'
+      context: 'make me a practice test out of the following prompt, with multiple questions testing different skills/knowledge. Check the answer that I give afterwards, informing me of what I got right and what I got wrong. Use adequate spacing, and give a grade at the end.'
     },
     {
       name: 'memorization',
@@ -106,7 +106,11 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: "Role: " + currentMode.context + "Conversation context: " + chat_context.innerText + "**Reply to this question:** " + inputMessage }),
+        body: JSON.stringify({ 
+          context: currentMode.context,
+          chat_context: chat_context.innerText,
+          message: inputMessage
+        }),
       });
 
       console.log('Response status:', response.status);

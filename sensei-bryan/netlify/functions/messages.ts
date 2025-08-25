@@ -31,8 +31,8 @@ export const handler: Handler = async (event) => {
 
 
 	try {
-		const { text } = JSON.parse(event.body || '{}');
-		if (!text) {
+		const { context, chat_context, message } = JSON.parse(event.body || '{}');
+		if (!message) {
 			return {
 				statusCode: 400,
 				body: JSON.stringify({ error: 'No message provided' }),
@@ -59,8 +59,8 @@ export const handler: Handler = async (event) => {
 			body: JSON.stringify({
 				model: model,
 				messages: [
-					{ role: 'system', content: 'You are Sensei Bryan, a helpful educational AI assistant.' },
-					{ role: 'user', content: text },
+					{ role: 'system', content: `You are Sensei Bryan, a helpful educational AI assistant. You challenge the user to think, and provide intuitive explanations. ${context}` },
+					{ role: 'user', content: `Conversation context: ${chat_context}\n\n**Reply to this question:** ${message}` },
 				],
 			}),
 		});

@@ -1,3 +1,5 @@
 # Ignroe build artifacts and dependencies
 .netlify
 build
+.CLAUDE.md
+.env

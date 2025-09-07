@@ -1,56 +1,25 @@
-# Sensei-Bryan
-Credit to Bryan Holl for project idea (https://github.com/BryanHol)
 
+# Sensei Bryan - AI-Powered Learning Assistant
 
-# Deployed
+### The Problem
+Many AI tools risk enabling shallow learning by giving users quick solutions, which can undermine critical thinking and deep understanding. Sensei Bryan addresses this by focusing on active learning and cognitive development.
 
-**find website at https://sensei-bryan.netlify.app/**
+### The Solution
+By engaging users in a dialogue that requires analysis and reflection, Sensei Bryan bridges the gap between AI efficiency and genuine learning, ensuring technology enhances rather than replaces critical thinking skills.
 
-**MAIN GOAL - makes you think rather than answer everything and turning your brain off**
+Live site: https://sudonym-i.github.io/Sensei-Bryan-Pub/
 
-decide what key features we want to build (all propositions)
-    asking questions, etc
-    finding sources
-    generating rewarding, gamefied, study strategies
+## Project Overview
 
+Sensei Bryan is an AI-powered chatbot designed to foster deep, critical, and active learning. Unlike traditional AI chatbots that provide direct answers, Sensei Bryan uses a Socratic teaching method to guide users through thoughtful dialogue and discovery. The goal is to help learners analyze problems, form hypotheses, develop metacognitive skills, and build lasting understanding.
+<img width="1915" height="966" alt="Screenshot From 2025-09-07 14-13-49" src="https://github.com/user-attachments/assets/487d842b-50f7-4bfa-9b01-a5a87bd0bc10" />
+### Key Features
+- **Socratic Method**: Encourages users to think critically and independently rather than relying on instant answers.
+- **Active Engagement**: Promotes guided discovery and thoughtful questioning.
+- **Optimal Effort**: Balances challenge and support for effective learning.
+- **Personalized Modes**: Offers different modes for teaching, testing, and memorization.
+---
 
+**Currently in beta- a non-monetized project.**
 
-
-#  Brainstorming ideas
-
-**1 - teaching mode**
-
-1.2 - start by asking what subject ( what level; college, high school, baby)
-   ex: string var = college algebra; + conext "explain X + **at a college level**"
-
-1.3 - ask their main question
-
-1.4 - overview, example of solving question, and then finish with a practice question
-
-1.5 - evaluate answer, and point out correct/incorrect parts of response
-**1.5.2 - use fact checking for AI answers + maybe diversify sources to ensure correct answers**
-
-
-**2 - flashcards**
-
-**3 - practice test feature**
-
-**4 - diagrams (more advenced, future stuff) (would search for images rather than generating)**
-
-# Funding
-
-As running this web app isnt free (primarily because of LLM per-M-token costs), we need to find a way to fund this project
-IDEAS
-1 - Crowd fund. Have a big fund that anyone can donate to, which goes directly into a pooled openrouter api key, loading funds which pay for everyones LLM usage
-
-
-----
-
-**Desktop**
-
-<img width="1800" height="800" alt="Screenshot from 2025-08-16 14-39-56" src="https://github.com/user-attachments/assets/26bbbee2-7945-4eb8-bea5-4262779fa2c3" />
-
-**Mobile**
-
-
-<img width="400" height="800" alt="IMG_0395" src="https://github.com/user-attachments/assets/b122ed18-09c0-4063-8977-aebd4beffd15" />
+---

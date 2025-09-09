@@ -143,7 +143,7 @@ function App() {
 
 
   const [currentMode, setCurrentMode] = useState(modes[0]);
-  const [isTrayVisible, setIsTrayVisible] = useState(false);
+  const [isTrayVisible, setIsTrayVisible] = useState(true);
 
   // Handle tray visibility
   const toggleTray = () => {

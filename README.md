@@ -7,7 +7,8 @@ Many AI tools risk enabling shallow learning by giving users quick solutions, wh
 ### The Solution
 By engaging users in a dialogue that requires analysis and reflection, Sensei Bryan bridges the gap between AI efficiency and genuine learning, ensuring technology enhances rather than replaces critical thinking skills.
 
-Live site: https://sudonym-i.github.io/Sensei-Bryan-Pub/
+Live site: https://sudonym-i.github.io/sensei_bryan/
+Web app: https://sudonym-i.github.io/Sensei-Bryan-Pub/
 
 ## Project Overview
 
